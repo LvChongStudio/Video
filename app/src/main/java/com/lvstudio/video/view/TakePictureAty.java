@@ -1,9 +1,8 @@
-package com.lvstudio.video;
+package com.lvstudio.video.view;
 
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.ImageFormat;
@@ -30,6 +29,9 @@ import android.view.TextureView;
 import android.view.View;
 import android.widget.Toast;
 
+import com.lvstudio.video.R;
+import com.lvstudio.video.view.widget.AutoFitTextureView;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.nio.ByteBuffer;
@@ -39,10 +41,13 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class TakePictureActivity extends Activity implements View.OnClickListener {
+/**
+ * @author lvstudio
+ */
+public class TakePictureAty extends Activity implements View.OnClickListener {
 
     private static final SparseIntArray ORIENTATIONS = new SparseIntArray();
-    private static final String TAG = "TakePictureActivity";
+    private static final String TAG = "TakePictureAty";
 
     static {
         ORIENTATIONS.append(Surface.ROTATION_0, 90);
@@ -91,7 +96,7 @@ public class TakePictureActivity extends Activity implements View.OnClickListene
         //  摄像头被打开时激发该方法
         @Override
         public void onOpened(CameraDevice cameraDevice) {
-            TakePictureActivity.this.cameraDevice = cameraDevice;
+            TakePictureAty.this.cameraDevice = cameraDevice;
             // 开始预览
             createCameraPreviewSession();  // ②
         }
@@ -100,22 +105,22 @@ public class TakePictureActivity extends Activity implements View.OnClickListene
         @Override
         public void onDisconnected(CameraDevice cameraDevice) {
             cameraDevice.close();
-            TakePictureActivity.this.cameraDevice = null;
+            TakePictureAty.this.cameraDevice = null;
         }
 
         // 打开摄像头出现错误时激发该方法
         @Override
         public void onError(CameraDevice cameraDevice, int error) {
             cameraDevice.close();
-            TakePictureActivity.this.cameraDevice = null;
-            TakePictureActivity.this.finish();
+            TakePictureAty.this.cameraDevice = null;
+            TakePictureAty.this.finish();
         }
     };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.aty_main);
         textureView = (AutoFitTextureView) findViewById(R.id.texture);
         // 为该组件设置监听器
         textureView.setSurfaceTextureListener(mSurfaceTextureListener);
@@ -243,7 +248,7 @@ public class TakePictureActivity extends Activity implements View.OnClickListene
 
                         @Override
                         public void onConfigureFailed(CameraCaptureSession cameraCaptureSession) {
-                            Toast.makeText(TakePictureActivity.this, "配置失败！"
+                            Toast.makeText(TakePictureAty.this, "配置失败！"
                                     , Toast.LENGTH_SHORT).show();
                         }
                     }, null
@@ -290,7 +295,7 @@ public class TakePictureActivity extends Activity implements View.OnClickListene
 
                                     FileOutputStream output = new FileOutputStream(file)) {
                                 output.write(bytes);
-                                Toast.makeText(TakePictureActivity.this, "保存: " + file, Toast.LENGTH_LONG).show();
+                                Toast.makeText(TakePictureAty.this, "保存: " + file, Toast.LENGTH_LONG).show();
                             } catch (Exception e) {
                                 e.printStackTrace();
                             } finally {

@@ -34,4 +34,14 @@
         android:text="Play Video"
         tools:layout_editor_absoluteX="82dp"
         tools:layout_editor_absoluteY="168dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:onClick="showVideos"
+        android:text="Show Videos -- Compress"
+        tools:layout_editor_absoluteX="82dp"
+        tools:layout_editor_absoluteY="168dp" />
 </LinearLayout>

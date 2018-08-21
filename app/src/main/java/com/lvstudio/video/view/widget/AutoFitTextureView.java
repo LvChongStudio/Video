@@ -1,11 +1,13 @@
-package com.lvstudio.video;
+package com.lvstudio.video.view.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.TextureView;
 
 /**
- * Created by lvchong on 2018/5/9.
+ *
+ * @author lvchong
+ * @date 2018/5/9
  */
 
 public class AutoFitTextureView  extends TextureView {

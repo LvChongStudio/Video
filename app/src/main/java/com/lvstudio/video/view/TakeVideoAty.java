@@ -1,4 +1,4 @@
-package com.lvstudio.video;
+package com.lvstudio.video.view;
 import android.app.Activity;
 import android.media.MediaRecorder;
 import android.os.Bundle;
@@ -10,11 +10,16 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.lvstudio.video.R;
+
 import java.io.File;
 
-public class TakeVideoActivity extends Activity implements OnClickListener {
+/**
+ * @author lvstudio
+ */
+public class TakeVideoAty extends Activity implements OnClickListener {
 
-    private static final String TAG = "TakeVideoActivity";
+    private static final String TAG = "TakeVideoAty";
     // 程序中的两个按钮
     TextView record, stop;
     // 系统的视频文件
@@ -28,7 +33,7 @@ public class TakeVideoActivity extends Activity implements OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main1);
+        setContentView(R.layout.aty_main1);
         // 获取程序界面中的两个按钮
         record = (TextView) findViewById(R.id.record);
         stop = (TextView) findViewById(R.id.stop);
@@ -51,7 +56,7 @@ public class TakeVideoActivity extends Activity implements OnClickListener {
         if (v.getId() == R.id.record) {
             if (!Environment.getExternalStorageState().equals(
                     android.os.Environment.MEDIA_MOUNTED)) {
-                Toast.makeText(TakeVideoActivity.this, "SD卡不存在，请插入SD卡！", Toast.LENGTH_SHORT).show();
+                Toast.makeText(TakeVideoAty.this, "SD卡不存在，请插入SD卡！", Toast.LENGTH_SHORT).show();
                 return;
             }
             try {

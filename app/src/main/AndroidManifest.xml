@@ -18,15 +18,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomeActivity">
+        <activity android:name=".view.HomeAty">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TakePictureActivity" />
-        <activity android:name=".TakeVideoActivity" />
-        <activity android:name=".PlayVideoActivity" />
+        <activity android:name=".view.TakePictureAty" />
+        <activity android:name=".view.TakeVideoAty" />
+        <activity android:name=".view.PlayVideoAty" />
+        <activity android:name=".view.VideoGetAty" />
     </application>
 </manifest>
